@@ -1,7 +1,8 @@
 name: Links
 
 # Every link on this page is meant to resolve. Checked weekly and on every push,
-# so a site that goes dark is noticed here first.
+# so a site that goes dark is noticed here first. X answers 403 to anything that
+# is not a browser, so it is the one link left unchecked.
 on:
   push:
     branches: [main]
@@ -13,8 +14,8 @@ jobs:
   links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --accept 200,206,429 README.md docs/*.md
+          args: --no-progress --accept 200,206,429 --exclude 'https://x\.com/' README.md docs/*.md
           fail: true
