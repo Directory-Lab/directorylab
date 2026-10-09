@@ -1,0 +1,5 @@
+* text=auto
+
+# Films and screenshots are made by the store's capture rig; treat as build artefacts
+docs/gifs/*.gif binary linguist-generated
+docs/screenshots/**/*.webp binary linguist-generated
